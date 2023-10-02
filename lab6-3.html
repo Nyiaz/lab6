@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Akhunov Niyaz</title>
+</head>
+<body>
+	<h1>Пример класса "Корпус"</h1>
+    <div id="bodyPCinfo"></div>
+
+    <script>
+        // Определение класса "Корпус"
+        class BodyPC {
+          constructor(power, bodytype, formf, cooling) {
+            this._power = power;
+            this._bodytype = bodytype;
+            this._formf = formf;
+            this._cooling = cooling;
+          }
+      
+          // Геттеры и сеттеры для свойств
+          get power() {
+            return this._power;
+          }
+      
+          set power(value) {
+            this._power = value;
+          }
+      
+          get bodytype() {
+            return this._bodytype;
+          }
+      
+          set bodytype(value) {
+            this._bodytype = value;
+          }
+      
+          get formf() {
+            return this._formf;
+          }
+      
+          set formf(value) {
+            this._formf = value;
+          }
+      
+          get cooling() {
+            return this._cooling;
+          }
+      
+          set cooling(value) {
+            this._cooling = value;
+          }
+      
+          get videoMemorySize() {
+            return this._videoMemorySize;
+          }
+      
+      
+          // Метод вывода информации об объекте
+          displayInfo() {
+            const infoDiv = document.getElementById("bodyPCinfo");
+            const info = `
+              <p>Мощность блока питания: ${this._power}</p>
+              <p>Тип корпуса: ${this._bodytype}</p>
+              <p>Форм-фактор материнской платы: ${this._formf}</p>
+              <p>Охлаждение: ${this._cooling}</p>
+            `;
+            infoDiv.innerHTML = info;
+          }
+        }
+      
+        // Создание объекта "корпус" с помощью класса
+        const myBodyPC = new BodyPC("1200w", "Horizont", "ATX");
+      
+        // Вывод информации об объекте "корпус"
+        myBodyPC.displayInfo();
+      
+        // Изменение значения свойства "Частота графического процессора"
+        myBodyPC.cooling = "water cooling";
+      
+        // Вывод обновленной информации об объекте "корпус"
+        myBodyPC.displayInfo();
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Akhunov Niyaz</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>Корпус</h1>
+  <p id="bodyPCinfo"></p>
+
+  <script>
+    // Функция-конструктор для создания объекта "Корпус"
+    function BodyPC(power, bodytype, formf, cooling, videoMemory) {
+      this.power = power;
+      this.bodytype = bodytype;
+      this.formf = formf;
+      this.cooling = cooling;
+      this.releaseDate = new Date();
+
+      // Метод вывода информации об объекте
+      this.displayInfo = function() {
+        let info = "Мощность блока питания: " + this.power + "<br>" +
+                   "Тип корпуса: " + this.bodytype + "<br>" +
+                   "Форм-фактор материнской платы: " + this.formf + "<br>" +
+                   "Охлаждение: " + this.cooling + "<br>" +
+                   "Дата выхода на рынок: " + this.releaseDate.toLocaleDateString();
+
+        document.getElementById("bodyPCinfo").innerHTML = info;
+      }
+    }
+
+    // Геттеры и сеттеры для доступа к свойствам объекта
+    Object.defineProperties(BodyPC.prototype, {
+      "Interface": {
+        get: function() {
+          return this.power;
+        },
+        set: function(value) {
+          this.power = value;
+        }
+      },
+      "GpuManufacturer": {
+        get: function() {
+          return this.bodytype;
+        },
+        set: function(value) {
+          this.bodytype = value;
+        }
+      },
+      "GpuModel": {
+        get: function() {
+          return this.formf;
+        },
+        set: function(value) {
+          this.formf = value;
+        }
+      },
+      "GpuClockSpeed": {
+        get: function() {
+          return this.cooling;
+        },
+        set: function(value) {
+          this.cooling = value;
+        }
+      },
+      "ReleaseDate": {
+        get: function() {
+          return this.releaseDate;
+        }
+      }
+    });
+
+    // Создание объекта "Корпус"
+    let bodyPC = new BodyPC("1200w", "Horizont", "ATX", "Water cooling");
+
+    // Вызов метода вывода информации об объекте
+    bodyPC.displayInfo();
+</script>
+</body>
+</html>

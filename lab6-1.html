@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Akhunov Niyaz</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>Корпус</h1>
+  <p id="bodyInfo"></p>
+
+  <script>
+    let bodyPC = {
+      power: "1200w",
+      bodytype: "horizont",
+      formf: "ATX",
+      cooling: "water cooling",
+
+      displayInfo: function() {
+        let info = "Мощность блока питания: " + this.power + "<br>" +
+                   "Тип корпуса: " + this.bodytype + "<br>" +
+                   "Форм-фактор материнской платы: " + this.formf + "<br>" +
+                   "Охлаждение: " + this.cooling + "<br>";
+
+        document.getElementById("bodyInfo").innerHTML = info;
+      }
+    };
+
+    // Вызов метода вывода информации об объекте
+    bodyPC.displayInfo();
+  </script>
+</body>
+</html>
